@@ -30,7 +30,7 @@ contributions déjà livrées. Voir [GOVERNANCE.md](GOVERNANCE.md).
 
 Les idées d'amélioration et les propositions de nouveaux modules sont attendues à tout
 stade de maturité, via le
-[formulaire de proposition](https://github.org/ENUN-ORG/.github/issues/new/choose?template=proposition.yml).
+[formulaire de proposition](https://github.com/ENUN-ORG/.github/issues/new/choose?template=proposition.yml).
 
 ---
 
