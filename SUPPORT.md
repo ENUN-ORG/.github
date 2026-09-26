@@ -1,48 +1,51 @@
 # Support
 
-Où poser une question, et comment signaler un problème.
+Ce document indique où poser une question selon sa nature.
 
 ---
 
-## Répartition des sujets
+## Où poser la question
 
-| Votre question porte sur | Où la poser |
+| Sujet | Emplacement |
 | --- | --- |
-| Un bogue, une fonctionnalité | une **issue** dans le dépôt concerné |
-| L'accès à l'organisation, un rôle | [le formulaire d'adhésion](https://github.com/ENUN-ORG/.github/issues/new/choose?template=rejoindre-enun.yml) |
-| Une faille de sécurité | **privé**, voir [SECURITY.md](SECURITY.md) |
-| Un comportement inapproprié | **privé**, voir [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) |
-| Comment contribuer | [CONTRIBUTING.md](CONTRIBUTING.md) |
-| Qui décide, et de quoi | [GOVERNANCE.md](GOVERNANCE.md) |
+| Bug ou demande de fonctionnalité | une issue dans le dépôt concerné |
+| Accès à l'organisation, niveau d'accès | [formulaire d'adhésion](https://github.com/ENUN-ORG/.github/issues/new/choose?template=rejoindre-enun.yml) |
+| Amélioration ou nouveau module | [formulaire de proposition](https://github.com/ENUN-ORG/.github/issues/new/choose?template=proposition.yml) |
+| Faille de sécurité | signalement privé, voir [SECURITY.md](SECURITY.md) |
+| Conduite à tenir | signalement privé, voir [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) |
+| Modalités de contribution | [CONTRIBUTING.md](CONTRIBUTING.md) |
+| Organisation et prise de décision | [GOVERNANCE.md](GOVERNANCE.md) |
 
 ---
 
-## Avant de poser une question
+## Avant d'ouvrir une issue
 
-La plupart des demandes trouvent leur réponse dans la documentation du dépôt concerné.
-Si ce n'est pas le cas, cherchez dans l'onglet **Issues** du dépôt : le problème a
-sans doute déjà été signalé.
+La documentation du dépôt concerné répond généralement à la question. À défaut,
+l'onglet **Issues** du dépôt peut déjà contenir une réponse : le sujet a peut-être
+déjà été traité.
 
-Si aucune réponse n'est trouvée, ouvrez une issue en précisant :
+Si une issue doit être ouverte, précisez :
 
-1. ce que vous cherchez à faire
-2. ce que vous avez tenté
-3. le résultat obtenu, avec le message d'erreur complet s'il y en a un
-4. votre environnement : système, version de l'outil, version de l'application
+1. l'objectif recherché
+2. les démarches déjà entreprises
+3. le résultat obtenu, avec le message d'erreur complet le cas échéant
+4. l'environnement : système, versions des outils et de l'application
 
----
-
-## Ce qui n'est pas traité ici
-
-- Le support d'un produit de l'université sans rapport avec un dépôt ENUN
-- Les demandes de documents académiques : ce n'est pas le rôle d'une organisation
-  GitHub de les fournir
-- Les demandes non liées à un projet de l'écosystème
+Une description précise accélère nettement le traitement.
 
 ---
 
-## Délais de réponse
+## Propositions
 
-Le soutien est assuré par des étudiant(es) et encadrants, en plus de leurs autres
-tâches. Une réponse n'est donc pas garantie. Si une demande reste sans réponse, la
-relancer avec l'étiquette `question` après quelques jours.
+Les idées d'amélioration et les propositions de nouveaux modules sont attendues, y
+compris à l'état d'ébauche. Utilisez le
+[formulaire de proposition](https://github.com/ENUN-ORG/.github/issues/new/choose?template=proposition.yml) :
+il structure la demande et rend la discussion possible avec le reste de l'équipe.
+
+---
+
+## Hors sujet
+
+Cet espace couvre les dépôts de l'organisation. Les demandes sans rapport avec un
+projet de l'écosystème, et les demandes de documents ou de services universitaires,
+relèvent des services de l'université et non de cette organisation.

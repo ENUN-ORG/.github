@@ -1,57 +1,54 @@
 # Charte de conduite
 
-Ce document définit le comportement attendu de toute personne participant à
-l'organisation ENUN : contributeurs, relecteurs, modérateurs et administrateurs.
-
-Il s'applique à tous les dépôts, aux issues, aux pull requests, aux discussions et à
-tout espace de l'organisation, y compris les activités hors GitHub liées à un projet ENUN.
+Ce document définit le comportement attendu au sein de l'organisation ENUN. Il
+s'applique à toute personne participant aux dépôts, aux issues, aux pull requests et
+aux discussions, ainsi qu'aux activités hors GitHub liées à un projet de
+l'organisation.
 
 ---
 
-## Notre engagement
+## Engagement
 
-Nous voulons un écosystème où chacun puisse contribuer sans crainte. Cela suppose un
-respect mutuel, quelle que soit l'expérience, l'année d'études ou la fonction.
+L'écosystème doit rester un lieu où chacun peut contribuer sereinement. Cela suppose
+un respect mutuel, indépendamment de l'expérience, de la formation ou de la fonction.
 
 ## Comportements attendus
 
-- Manier les désaccords sur le fond, jamais sur la personne
-- Donner du crédit à l'auteur d'une idée ou d'un code repris
-- Accepter une relecture et poser des questions avant de déduire une intention
-- Rester factuel : décrire un problème avec un exemple reproductible
+- Discuter des idées, jamais des personnes
+- Attribuer Properly l'origine d'une idée ou d'un code repris
+- Accepter la relecture et demander des précisions plutôt que supposer une intention
+- Rester factuel et fournir un cas reproductible lorsqu'un problème est signalé
 - Respecter le temps des autres et les délais annoncés
 
-## Comportements inacceptables
+## Comportements exclus
 
 - Harcèlement, insultes ou menaces, en public comme en privé
-- Discrimination, propos haineux, ou contenu faisant référence à une religion, une
-  ethnie, un genre, une orientation sexuelle, un handicap ou une origine
-- Publication d'informations privées : données d'étudiants, identifiants, coordonnées
-- Reproduction non autorisée de documents académiques dont on ne tient pas le droit
-- Contribution sous le compte d'autrui, ou usurpation d'identité
+- Discrimination ou propos haineux, portant sur une religion, une ethnie, un genre,
+  une orientation sexuelle, un handicap ou une origine
+- Diffusion d'informations privées : données personnelles, identifiants, coordonnées
+- Reproduction de documents sans autorisation
+- Usurpation d'identité ou contribution sous le compte d'un tiers
 - Usage commercial de l'infrastructure de l'organisation
 
-## Responsabilités
+## Application
 
-Les administrateurs et les modérateurs sont responsables de l'application de cette
-charte. Ils ont l'obligation de traiter les signalements avec rapidité, impartialité et
-discrétion, et de ne pas laisser une situation inconfortable sans suite.
+L'administration applique cette charte et instruit les signalements avec rapidité,
+impartialité et discrétion.
 
-Un contributeur qui enfreint cette charte peut être retiré de l'organisation, sans
-avertissement préalable si la gravité le justifie.
+Tout manquement peut donner lieu à une restriction d'accès ou à un retrait de
+l'organisation.
 
 ## Portée
 
-Cette charte s'applique dans tous les espaces de l'organisation. Un comportement
-problématique ailleurs, sur une autre plateforme ou lors d'une activité universitaire,
-où la personne se présente comme membre d'ENUN, engage sa responsabilité dans le cadre
-de cette charte.
+La charte s'applique à tous les espaces de l'organisation. Un comportement contraire à
+celle-ci, exercé ailleurs alors que la personne se présente comme membre d'ENUN,
+engage sa responsabilité dans le cadre de cette charte.
 
 ## Signalement
 
-Pour signaler un comportement inapproprié, contactez un administrateur en privé.
-Les signalements sont traités confidentiellement. Un signalement de bonne foi n'entraîne
-jamais de sanction pour celui qui le fait.
+Les signalements s'effectuent en privé auprès de l'administration. Ils sont traités de
+manière confidentielle, et un signalement effectué de bonne foi n'entraîne jamais de
+sanction.
 
 ## Attribution
 

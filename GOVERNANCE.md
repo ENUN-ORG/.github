@@ -1,67 +1,59 @@
 # Gouvernance
 
-Ce document décrit comment l'organisation ENUN est gouvernée et qui décide de quoi.
+Ce document présente l'organisation ENUN et les modalités de son fonctionnement.
 
 ---
 
-## Les rôles
+## Rôles
 
-| Rôle | GitHub | Peut |
+L'organisation distingue trois niveaux d'accès.
+
+| Niveau | Équipe | Périmètre |
 | --- | --- | --- |
-| **Membre** | `membres` | lire les dépôts, ouvrir des issues et des pull requests |
-| **Modérateur** | `moderateurs` | écrire dans les dépôts, développer, relire, fusionner |
-| **Administrateur** | Owner | tout, y compris supprimer l'organisation et gérer les accès |
+| Membre | `membres` | consultation des dépôts, ouverture d'issues et de pull requests |
+| Modérateur | `moderateurs` | développement, relecture et fusion au sein des dépôts |
+| Administration | — | gestion des accès, des dépôts et des réglages de l'organisation |
 
-Il y a **exactement deux administrateurs**. Cette limitation est délibérée : un
-organisation à deux clés se vérifie mutuellement et ne peut pas être captée par une
-personne seule.
+L'appartenance à l'organisation est ouverte : elle s'obtient par le
+[formulaire d'adhésion](https://github.com/ENUN-ORG/.github/issues/new/choose?template=rejoindre-enun.yml),
+sans validation préalable.
 
-Les propriétaires n'utilisent pas ce pouvoir pour contourner le processus : ils
-relisent comme les autres, et n'utilisent le contournement qu'en cas d'urgence
-explicite.
+L'accès de niveau modérateur s'obtient par demande motivée, instruite au regard des
+contributions déjà livrées. Il ne s'agit pas d'un statut permanent : il suit
+l'implication réelle.
 
 ---
 
-## Qui décide
+## Prise de décision
 
-- **Choix techniques et architecture** : proposition ouverte, décision des administrateurs
-- **Orientation et priorités** : les administrateurs, en tenant compte des
-  propositions de la communauté
-- **Ajout ou retrait d'un module** : décision des administrateurs
-- **Tout choix non couvert par une décision antérieure** : discuté en issue
-  publique avant d'être arrêté
+| Sujet | Modalité |
+| --- | --- |
+| Choix techniques et architecture | proposition ouverte, examen en issue publique |
+| Orientation et priorités | décision de l'administration, après consultation des contributions |
+| Création ou retrait d'un module | proposition publique, puis décision |
+| Nouveauté technique non tranchée | discutée publiquement avant d'être arrêtée |
 
 Toute décision d'architecture susceptible d'affecter plusieurs modules est consignée
-dans une issue ou un document, pour rester traçable.
+par écrit, afin de rester consultable par la suite.
 
 ---
 
-## Accès
+## Modules
 
-L'adhésion est **automatique** et sans intervention : il suffit de remplir le
-formulaire d'adhésion de l'organisation.
+L'écosystème se construit par modules. Chaque module dispose de son dépôt et de son
+propre cycle de vie, tout en s'appuyant sur l'infrastructure commune : authentification,
+rôles et gestion des accès.
 
-La promotion au niveau `moderateur` n'est **pas** automatique. Elle est demandée via le
-formulaire, qui inscrit une demande motivée. Un administrateur décide. Le critère est
-la contribution déjà apportée : quelqu'un qui a livré des pull requests fusionnées
-n'a pas à refaire un apprentissage.
-
-La rétrogradation ou le retrait d'un membre ne peut être justifié que par un
-manquement à la charte de conduite, ou par une inactivité prolongée. Elle est motivée
-par écrit.
+L'ajout d'un module suit le même chemin que toute autre proposition : une idée
+déposée via le [formulaire de proposition](https://github.com/ENUN-ORG/.github/issues/new/choose?template=proposition.yml),
+puis une discussion ouverte avant toute décision.
 
 ---
 
-## Accès administrateur
+## Transparence
 
-Le compte d'un administrateur est **personnel**. Il ne doit être partagé avec personne,
-ni prêté, ni utilisé pour des actions personnelles.
-
-C'est la seule personne ayant le droit de supprimer l'organisation, ses dépôts et ses
-données. Un administrateur perdu ou compromis met l'ensemble de l'écosystème en
-compromis, c'est pourquoi il n'y en a que deux.
-
-## Recours
+Les décisions structurantes, les refus de proposition et les motifs de rejet de
+contributions sont expliqués publiquement lorsqu'ils concernent le projet.
 
 Toute personne membre de l'organisation peut demander une précision sur une décision
-ou contester son traitement, en s'adressant directement à un administrateur.
+ou contester son traitement, en s'adressant directement à l'administration.

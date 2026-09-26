@@ -1,54 +1,56 @@
 # Contribuer à ENUN
 
-Merci de vouloir participer à l'écosystème numérique de l'Université Abdou Moumouni.
-
-Ce document explique comment proposer une modification. Il s'applique à **tous** les
-dépôts de l'organisation.
+Ce document décrit les modalités de contribution aux dépôts de l'organisation.
 
 ---
 
-## Les trois niveaux
+## Accès
 
-| Niveau | Droits |
-| --- | --- |
-| `membres` | lecture, ouverture d'issues et de pull requests |
-| `moderateurs` | écriture sur les dépôts, développement et modération |
-| **2 administrateurs** | gestion des accès, des dépôts et des réglages |
+L'adhésion est ouverte et s'obtient par le
+[formulaire d'adhésion](https://github.com/ENUN-ORG/.github/issues/new/choose?template=rejoindre-enun.yml).
 
-L'adhésion est automatique via [le formulaire](https://github.com/ENUN-ORG/.github/issues/new/choose?template=rejoindre-enun.yml).
-Le passage au niveau `moderateur` se demande dans ce même formulaire.
+| Niveau | Équipe | Périmètre |
+| --- | --- | --- |
+| Membre | `membres` | consultation, issues, pull requests |
+| Modérateur | `moderateurs` | développement, relecture, fusion |
+
+Le niveau de modérateur s'obtient par demande motivée, instruite au regard des
+contributions déjà livrées. Voir [GOVERNANCE.md](GOVERNANCE.md).
 
 ---
 
 ## Avant de commencer
 
-1. **Cherchez si le travail existe déjà.** Une issue ou une pull request ouverte peut
-   déjà couvrir le sujet.
-2. **Ouvrez une issue** pour décrire ce que vous voulez faire, avant d'écrire le code.
-   Cela évite de coder quelque chose qui sera refusé, et permet de coordonner avec
-   les autres contributeurs.
-3. **Une seule modification par pull request.** Mélanger une correction de bug et
-   une refonte rend la relecture impossible.
+1. **Vérifier que le sujet n'est pas déjà traité.** Une issue ou une pull request
+   ouverte peut le couvrir.
+2. **Ouvrir une issue** pour décrire l'intention avant d'écrire le code, afin de
+   cadrer le travail et de coordonner avec les autres contributeurs.
+3. **Séparer les sujets.** Une pull request qui corrige un défaut et refond un module
+   à la fois ne peut pas être relue correctement.
+
+Les idées d'amélioration et les propositions de nouveaux modules sont attendues à tout
+stade de maturité, via le
+[formulaire de proposition](https://github.org/ENUN-ORG/.github/issues/new/choose?template=proposition.yml).
 
 ---
 
-## Workflow : fork, branche, pull request
+## Cycle de contribution
 
-La branche principale de chaque dépôt est protégée : **personne ne pousse
-directement dessus**. Le travail se fait par fork.
+La branche principale de chaque dépôt est protégée : les contributions passent par
+une pull request.
 
 ```bash
-# 1. Forker le dépôt depuis l'interface GitHub (bouton Fork), puis :
-git clone https://github.com/<votre-pseudo>/<depot>.git
+# 1. Forker le dépôt depuis l'interface GitHub, puis :
+git clone https://github.com/<votre-identifiant>/<depot>.git
 cd <depot>
 
 # 2. Créer une branche dédiée
 git checkout -b feat/filtre-par-matiere
 
 # 3. Développer
-#    ...vos modifications...
+#    ...les modifications...
 
-# 4. Vérifier avant de pousser
+# 4. Relire avant de pousser
 git add .
 git diff --staged
 
@@ -57,7 +59,9 @@ git commit -m "feat: ajoute le filtrage par matiere"
 git push origin feat/filtre-par-matiere
 ```
 
-Puis ouvrez la **pull request** depuis GitHub vers le dépôt de l'organisation.
+Ouvrir ensuite la pull request depuis l'interface GitHub vers le dépôt de
+l'organisation. Une approbation est requise avant fusion ; la branche est supprimée
+automatiquement après celle-ci.
 
 ---
 
@@ -68,50 +72,44 @@ Format : `<type> : <description en minuscules>`
 | Type | Usage |
 | --- | --- |
 | `feat` | nouvelle fonctionnalité |
-| `fix` | correction de bug |
-| `docs` | documentation uniquement |
+| `fix` | correction |
+| `docs` | documentation |
 | `refactor` | réorganisation sans changement de comportement |
-| `test` | ajout ou correction de tests |
+| `test` | tests |
 | `chore` | outillage, configuration, dépendances |
-| `style` | formatage, sans impact logique |
+| `style` | formatage |
 
 Exemples :
 
 ```
 feat: ajoute la recherche par mot-clé
 fix: corrige le calcul du niveau sur les filières à option
-docs: précise les règles de dépôt d'un document
-chore: passe la configuration de build en Flutter 3.24
+docs: précise les conditions de dépôt d'un document
+chore: met à jour la configuration de build
 ```
 
 ---
 
-## Règles de relecture
+## Relecture
 
-- **Une approbation** est nécessaire avant fusion. Un modérateur relit.
-- Les relecteurs peuvent demander des changements. C'est normal, ce n'est pas un refus.
-- Les discussions se font sur la pull request, pas en message privé, pour que la
-  décision reste traçable.
-- Un auteur ne peut pas approuver sa propre pull request.
+- Une approbation est requise avant fusion.
+- La discussion se tient sur la pull request, afin que la décision reste consultable.
+- Les demandes de modification font partie du processus normal.
 
 ---
 
-## Signalement d'un problème
+## Signalement
 
-- **Bug ou fonctionnalité** → une issue
-- **Faille de sécurité** → ne pas ouvrir d'issue publique, voir [SECURITY.md](SECURITY.md)
-- **Comportement inapproprié** → voir [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
+| Sujet | Emplacement |
+| --- | --- |
+| Bug, fonctionnalité | issue publique |
+| Amélioration, nouveau module | [formulaire de proposition](https://github.com/ENUN-ORG/.github/issues/new/choose?template=proposition.yml) |
+| Faille de sécurité | signalement privé, voir [SECURITY.md](SECURITY.md) |
+| Conduite à tenir | signalement privé, voir [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) |
 
 ---
 
 ## Licence
 
-Le code de l'écosystème est distribué sous **GNU Affero General Public License v3.0**.
-Toute contribution Fusionnée dans un dépôt est publiée sous la même licence.
-Voir [LICENSE](LICENSE).
-
----
-
-## Aide
-
-Une question ? [SUPPORT.md](SUPPORT.md)
+Le code de l'organisation est distribué sous GNU Affero General Public License v3.0.
+Toute contribution fusionnée est publiée sous la même licence. Voir [LICENSE](LICENSE).
