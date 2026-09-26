@@ -54,7 +54,7 @@ jobs:
             }
 
             const username = pick('github_username');
-            const email = pick('email_universitaire');
+            const email = pick('email_github');
             const role = (pick('role_demande') || 'membre').toLowerCase();
 
             if (!username) return fail('Champ `github_username` introuvable ou vide.');
@@ -80,7 +80,12 @@ jobs:
               membre: 'membres',
               moderateur: 'moderateurs',
             };
-            const team = TEAM_BY_ROLE[role] || 'membres';
+            // AUTO_PROMOTE est lu AVANT l'attribution d'equipe : sans cela, un
+            // role 'moderateur' serait accorde alors que la politique annonce
+            // une decision manuelle. Le demandeur rejoint 'membres' dans ce cas.
+            const autoPromote = (process.env.AUTO_PROMOTE || 'false').toLowerCase() === 'true';
+            const needsManualPromotion = role !== 'membre' && !autoPromote;
+            const team = needsManualPromotion ? 'membres' : (TEAM_BY_ROLE[role] || 'membres');
 
             try {
               await github.request('PUT /orgs/{org}/memberships/{username}', {
@@ -114,8 +119,6 @@ jobs:
             }
 
             // 4. Notifier
-            const autoPromote = (process.env.AUTO_PROMOTE || 'false').toLowerCase() === 'true';
-
             const lines = [
               '### :white_check_mark: Bienvenue dans ENUN, @' + username,
               '',
@@ -125,14 +128,14 @@ jobs:
               '| Role demande | `' + role + '` |',
               '| Equipe | `' + team + '` |',
               '| Ajout a l\'equipe | ' + (inTeam ? 'oui' : 'non (verifie manuellement)') + ' |',
-              '| Email renseigne | `' + (email || 'non renseigne') + '` |',
+              '| E-mail renseigne | `' + (email || 'non renseigne') + '` |',
             ];
 
-            if (role !== 'membre' && !autoPromote) {
+            if (needsManualPromotion) {
               lines.push(
                 '',
-                '> Le role `' + role + '` demande un acces elargi. Un owner doit te placer dans `' + team + '` manuellement.',
-                '> Repond a cette issue avec `!promote @' + username + '` pour l\'effectuer.',
+                '> Le role `' + role + '` demande un acces elargi et n\'est pas accorde automatiquement.',
+                '> Tu es membre de `' + team + '`. Une personne administre l\'organisation examinera ta demande.',
               );
             }
 

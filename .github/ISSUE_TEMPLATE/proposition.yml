@@ -1,0 +1,64 @@
+name: Proposition
+description: Proposer une amélioration, une fonctionnalité ou un nouveau module.
+title: "[PROPOSITION] "
+labels: ["proposition"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Les idées d'amélioration et les propositions de nouveaux modules sont les
+        bienvenues. Décrivez votre idée même si elle n'est pas encore mûrie : elle
+        servira de point de départ à la discussion.
+
+  - type: dropdown
+    id: nature
+    attributes:
+      label: Nature de la proposition
+      options:
+        - Amélioration d'un module existant
+        - Nouveau module
+        - Correction ou amélioration technique
+        - Documentation
+    validations:
+      required: true
+
+  - type: textarea
+    id: probleme
+    attributes:
+      label: Problème ou besoin
+      description: "Ce qui manque aujourd'hui, ou ce qui fonctionne mal. Soyez concret."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposition
+    attributes:
+      label: Proposition
+      description: "Ce que vous suggérez, et comment."
+    validations:
+      required: true
+
+  - type: textarea
+    id: benefice
+    attributes:
+      label: Bénéfice attendu
+      description: "Ce que cela apporte à les utilisateurs de l'université."
+    validations:
+      required: false
+
+  - type: input
+    id: perimetre
+    attributes:
+      label: Périmètre
+      description: "Quel dépôt ou quel module cela concerne-t-il ?"
+      placeholder: enun-docs
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: contributions
+    attributes:
+      label: Suite que vous souhaitez donner
+      options:
+        - label: Je souhaite être associé à la mise en œuvre
+        - label: Je propose simplement l'idée

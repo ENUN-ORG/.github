@@ -1,40 +1,39 @@
-name: Demande d'adhésion à ENUN
-description: Remplis ce formulaire pour rejoindre automatiquement l'organisation ENUN.
-title: "[ADHESION] "
-labels: ["adhesion", "auto-join"]
+name: Demande d'adhésion
+description: Rejoindre l'organisation ENUN et son écosystème de modules.
+title: "[ADHÉSION] "
+labels: ["adhesion"]
 body:
   - type: markdown
     attributes:
       value: |
-        Ce formulaire va **t'ajouter automatiquement** à l'organisation ENUN.
-        Aucune validation humaine n'est nécessaire.
-        Assure-toi que ton compte GitHub est déjà créé et que tu as bien ton identifiant exact.
+        Ce formulaire vous inscrit automatiquement dans l'organisation.
+        Aucune validation n'est requise.
 
   - type: input
     id: github_username
     attributes:
-      label: Ton identifiant GitHub
-      description: "Exactement comme sur github.com, sans le @. Exemple : `votre-pseudo`"
-      placeholder: votre-pseudo
+      label: Identifiant GitHub
+      description: "Tel qu'il apparaît dans votre profil, sans le caractère @."
+      placeholder: votre-identifiant
     validations:
       required: true
 
   - type: input
-    id: email_universitaire
+    id: email_github
     attributes:
-      label: Email universitaire
-      description: "Sert de traçabilité. Exemple : `nom@uam.edu`"
-      placeholder: nom@uam.edu
+      label: Adresse e-mail de votre compte GitHub
+      description: "Celle que vous avez configurée dans les paramètres de votre compte."
+      placeholder: vous@exemple.com
     validations:
       required: true
 
   - type: dropdown
     id: role_demande
     attributes:
-      label: Rôle demandé
+      label: Niveau d'accès souhaité
       description: |
-        - `membre` → lecture seule sur les dépôts publics (ajout automatique)
-        - `moderateur` → écriture sur les dépôts de l'organisation (sur validation d'un admin)
+        - `membre` — lecture des dépôts, ouverture d'issues et de pull requests
+        - `moderateur` — en plus : écriture dans les dépôts, développement et relecture
       options:
         - membre
         - moderateur

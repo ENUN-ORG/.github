@@ -25,8 +25,16 @@ jobs:
               'GET /orgs/{org}/memberships/{username}',
               { org: context.repo.owner, username: context.actor, headers: { authorization: 'token ' + process.env.ORG_ADMIN_TOKEN } }
             );
-            if (membership.role !== 'admin' && membership.role !== 'owner' && membership.state !== 'active') {
-              return core.setFailed('Seul un owner de l\'organisation peut executer cette commande.');
+            // Les deux conditions doivent etre VRAIES simultanement pour etre
+            // autorise : role d'administration ET membre actif. Un '||' ou une
+            // combinaison de '&&' laisserait passer un membre ordinaire.
+            const isAdmin = membership.role === 'admin' || membership.role === 'owner';
+            const isActive = membership.state === 'active';
+            if (!isAdmin || !isActive) {
+              return core.setFailed(
+                'Commande reservee a un owner actif de l\'organisation. ' +
+                'Etat detecte : role=' + membership.role + ', state=' + membership.state
+              );
             }
             core.info('Autorise : ' + context.actor);
 
