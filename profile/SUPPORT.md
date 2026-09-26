@@ -48,4 +48,4 @@ il structure la demande et rend la discussion possible avec le reste de l'équip
 
 Cet espace couvre les dépôts de l'organisation. Les demandes sans rapport avec un
 projet de l'écosystème, et les demandes de documents ou de services universitaires,
-relèvent des services de l'université et non de cette organisation.
+relèvent des services des universités et non de cette organisation.

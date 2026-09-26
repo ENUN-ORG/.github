@@ -6,7 +6,7 @@
 
 <p align="center">
   <strong>Écosystème numérique universitaire</strong><br>
-  Université Abdou Moumouni — Niamey, Niger
+  Universités du Niger
 </p>
 
 <p align="center">
@@ -19,10 +19,10 @@
 
 ## Présentation
 
-ENUN est l'organisation qui porte l'écosystème numérique de l'Université Abdou Moumouni.
+ENUN est l'organisation qui porte l'écosystème numérique des universités du Niger.
 
 Elle a pour objet de réunir dans un cadre technique et une communauté uniques les
-services numériques de l'université, plutôt que de les traiter comme des projets
+services numériques des universités, plutôt que de les traiter comme des projets
 indépendants.
 
 L'écosystème se construit **par modules**. Chacun dispose de son dépôt et de son propre
@@ -69,6 +69,6 @@ Les contributions passent par une pull request. Le détail du procédé figure d
 ---
 
 <p align="center">
-  Université Abdou Moumouni — Niamey, Niger<br>
+  Universités du Niger<br>
   <sub>Écosystème numérique universitaire</sub>
 </p>

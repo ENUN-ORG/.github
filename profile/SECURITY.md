@@ -7,7 +7,7 @@ Ce document explique comment signaler une faille de sécurité de manière respo
 ## Périmètre
 
 Cette politique s'applique à l'ensemble des dépôts de l'organisation et aux
-applications déployées dans le cadre de l'université.
+applications déployées dans le cadre des universités.
 
 Sont concernés : injection de code, contournement de l'authentification, contournement
 des contrôles d'accès, exposition de données personnelles ou de documents restreints,
