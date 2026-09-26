@@ -1,0 +1,42 @@
+name: Demande d'adhésion à ENUN
+description: Remplis ce formulaire pour rejoindre automatiquement l'organisation ENUN.
+title: "[ADHESION] "
+labels: ["adhesion", "auto-join"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ce formulaire va **t'ajouter automatiquement** à l'organisation ENUN.
+        Aucune validation humaine n'est nécessaire.
+        Assure-toi que ton compte GitHub est déjà créé et que tu as bien ton identifiant exact.
+
+  - type: input
+    id: github_username
+    attributes:
+      label: Ton identifiant GitHub
+      description: "Exactement comme sur github.com, sans le @. Exemple : `votre-pseudo`"
+      placeholder: votre-pseudo
+    validations:
+      required: true
+
+  - type: input
+    id: email_universitaire
+    attributes:
+      label: Email universitaire
+      description: "Sert de traçabilité. Exemple : `nom@uam.edu`"
+      placeholder: nom@uam.edu
+    validations:
+      required: true
+
+  - type: dropdown
+    id: role_demande
+    attributes:
+      label: Rôle demandé
+      description: |
+        - `membre` → lecture seule sur les dépôts publics (ajout automatique)
+        - `moderateur` → écriture sur les dépôts de l'organisation (sur validation d'un admin)
+      options:
+        - membre
+        - moderateur
+    validations:
+      required: true

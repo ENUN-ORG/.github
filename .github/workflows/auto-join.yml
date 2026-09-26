@@ -1,0 +1,161 @@
+name: Auto-join
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: auto-join-${{ github.event.issue.number }}
+  cancel-in-progress: false
+
+jobs:
+  join:
+    if: >-
+      github.event.issue.pull_request == null &&
+      contains(github.event.issue.body, 'github_username')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verifier le format et ajouter le membre
+        uses: actions/github-script@v7
+        env:
+          ORG_ADMIN_TOKEN: ${{ secrets.ORG_ADMIN_TOKEN }}
+          AUTO_PROMOTE: ${{ vars.AUTO_PROMOTE }}
+        with:
+          script: |
+            const org = context.repo.owner;
+            const repo = context.repo.repo;
+            const issue_number = context.payload.issue.number;
+            const body = context.payload.issue.body || '';
+
+            const pick = (key) => {
+              const m = body.match(new RegExp('^\\s*-\\s*' + key + '\\s*:\\s*(.+)$', 'im'));
+              return m ? m[1].trim().replace(/^`|`$/g, '') : null;
+            };
+
+            const comment = (text) =>
+              github.request('POST /repos/{owner}/{repo}/issues/{issue_number}/comments', {
+                owner: context.repo.owner,
+                repo,
+                issue_number,
+                body: text,
+              });
+
+            const fail = async (text) => {
+              await comment('### :x: Auto-join echoue\n\n' + text);
+              core.setFailed(text);
+            };
+
+            if (!process.env.ORG_ADMIN_TOKEN) {
+              return fail('Secret `ORG_ADMIN_TOKEN` absent. Ajoute-le dans Settings > Secrets and variables > Actions.');
+            }
+
+            const username = pick('github_username');
+            const email = pick('email_universitaire');
+            const role = (pick('role_demande') || 'membre').toLowerCase();
+
+            if (!username) return fail('Champ `github_username` introuvable ou vide.');
+
+            if (!/^[a-zA-Z0-9](?:[a-zA-Z0-9]|-(?=[a-zA-Z0-9])){0,38}$/.test(username)) {
+              return fail('`' + username + '` n\'est pas un identifiant GitHub valide.');
+            }
+
+            const authHeaders = { authorization: 'token ' + process.env.ORG_ADMIN_TOKEN };
+
+            // 1. Verifier que le compte existe
+            try {
+              await github.request('GET /users/{username}', {
+                username,
+                headers: authHeaders,
+              });
+            } catch (e) {
+              return fail('Le compte `@' + username + '` n\'existe pas sur GitHub.');
+            }
+
+            // 2. Ajouter a l'organisation (sans invitation = sans confirmation)
+            const TEAM_BY_ROLE = {
+              membre: 'membres',
+              moderateur: 'moderateurs',
+            };
+            const team = TEAM_BY_ROLE[role] || 'membres';
+
+            try {
+              await github.request('PUT /orgs/{org}/memberships/{username}', {
+                org,
+                username,
+                role: 'member',
+                headers: authHeaders,
+              });
+            } catch (e) {
+              if (e.status === 404) {
+                return fail('`' + org + '` n\'a pas autorise les appels d\'API. Le token doit avoir le scope `admin:org` et l\'option **Allow GitHub Actions to create and approve pull requests** n\'est pas requise, mais l\'Organisation doit autoriser les GitHub Apps.');
+              }
+              if (e.status === 302) {
+                return fail('Le compte @' + username + ' a une session en attente de validation d\'email.');
+              }
+              return fail('Adhesion refusee (' + e.status + ') : ' + e.message);
+            }
+
+            // 3. Placer dans l'equipe correspondant au role
+            let inTeam = true;
+            try {
+              await github.request('PUT /orgs/{org}/teams/{team_slug}/memberships/{username}', {
+                org,
+                team_slug: team,
+                username,
+                role: 'member',
+                headers: authHeaders,
+              });
+            } catch (e) {
+              inTeam = false;
+            }
+
+            // 4. Notifier
+            const autoPromote = (process.env.AUTO_PROMOTE || 'false').toLowerCase() === 'true';
+
+            const lines = [
+              '### :white_check_mark: Bienvenue dans ENUN, @' + username,
+              '',
+              '| Champ | Valeur |',
+              '| --- | --- |',
+              '| Organisation | `' + org + '` |',
+              '| Role demande | `' + role + '` |',
+              '| Equipe | `' + team + '` |',
+              '| Ajout a l\'equipe | ' + (inTeam ? 'oui' : 'non (verifie manuellement)') + ' |',
+              '| Email renseigne | `' + (email || 'non renseigne') + '` |',
+            ];
+
+            if (role !== 'membre' && !autoPromote) {
+              lines.push(
+                '',
+                '> Le role `' + role + '` demande un acces elargi. Un owner doit te placer dans `' + team + '` manuellement.',
+                '> Repond a cette issue avec `!promote @' + username + '` pour l\'effectuer.',
+              );
+            }
+
+            await comment(lines.join('\n'));
+
+            // 5. Etiqueter pour suivi
+            try {
+              await github.request('POST /repos/{owner}/{repo}/issues/{issue_number}/labels', {
+                owner: context.repo.owner,
+                repo,
+                issue_number,
+                labels: ['traite', 'role:' + role],
+              });
+            } catch (e) {}
+
+            core.summary
+              .addHeading('Auto-join', 3)
+              .addTable([
+                [
+                  { data: 'Username', header: true },
+                  { data: 'Team', header: true },
+                  { data: 'Status', header: true },
+                ],
+                [username, team, 'added'],
+              ])
+              .write();

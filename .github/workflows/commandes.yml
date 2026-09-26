@@ -1,0 +1,61 @@
+name: Commandes
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  commande:
+    if: >-
+      github.event.issue.pull_request == null &&
+      contains(github.event.comment.body, '!promote')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verifier l'autorite
+        uses: actions/github-script@v7
+        env:
+          ORG_ADMIN_TOKEN: ${{ secrets.ORG_ADMIN_TOKEN }}
+        with:
+          script: |
+            const { data: membership } = await github.request(
+              'GET /orgs/{org}/memberships/{username}',
+              { org: context.repo.owner, username: context.actor, headers: { authorization: 'token ' + process.env.ORG_ADMIN_TOKEN } }
+            );
+            if (membership.role !== 'admin' && membership.role !== 'owner' && membership.state !== 'active') {
+              return core.setFailed('Seul un owner de l\'organisation peut executer cette commande.');
+            }
+            core.info('Autorise : ' + context.actor);
+
+      - name: Promouvoir
+        uses: actions/github-script@v7
+        env:
+          ORG_ADMIN_TOKEN: ${{ secrets.ORG_ADMIN_TOKEN }}
+        with:
+          script: |
+            const body = context.payload.comment.body;
+            const username = (body.match(/!promote\s+@([a-zA-Z0-9-]+)/) || [])[1];
+            if (!username) return core.setFailed('Usage : `!promote @username`');
+
+            const roleMap = { membre: 'membres', moderateur: 'moderateurs' };
+            const role = (body.match(/role\s*=\s*(\w+)/) || [])[1] || 'moderateur';
+            const team = roleMap[role];
+            if (!team) return core.setFailed('Role inconnu : ' + role);
+
+            await github.request('PUT /orgs/{org}/teams/{team_slug}/memberships/{username}', {
+              org: context.repo.owner,
+              team_slug: team,
+              username,
+              role: 'member',
+              headers: { authorization: 'token ' + process.env.ORG_ADMIN_TOKEN },
+            });
+
+            await github.request('POST /repos/{owner}/{repo}/issues/{issue_number}/comments', {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.issue.number,
+              body: '### :white_check_mark: @' + username + ' est desormais dans l\'equipe `' + team + '` (role `' + role + '`).',
+            });
