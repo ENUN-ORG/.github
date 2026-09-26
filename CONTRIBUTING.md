@@ -15,7 +15,7 @@ L'adhésion est ouverte et s'obtient par le
 | Modérateur | `moderateurs` | développement, relecture, fusion |
 
 Le niveau de modérateur s'obtient par demande motivée, instruite au regard des
-contributions déjà livrées. Voir [GOVERNANCE.md](GOVERNANCE.md).
+contributions déjà livrées.
 
 ---
 

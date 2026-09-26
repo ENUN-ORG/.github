@@ -14,7 +14,6 @@ Ce document indique où poser une question selon sa nature.
 | Faille de sécurité | signalement privé, voir [SECURITY.md](SECURITY.md) |
 | Conduite à tenir | signalement privé, voir [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) |
 | Modalités de contribution | [CONTRIBUTING.md](CONTRIBUTING.md) |
-| Organisation et prise de décision | [GOVERNANCE.md](GOVERNANCE.md) |
 
 ---
 
