@@ -11,7 +11,7 @@
 
 <p align="center">
   <a href="issues/new/choose?template=rejoindre-enun.yml"><img alt="Rejoindre ENUN" src="https://img.shields.io/badge/rejoindre%20ENUN-1d76db?style=for-the-badge"></a>
-  <img alt="Organisation" src="https://img.shields.io/badge/organisation-064E3B?style=for-the-badge">
+  <img alt="Licence" src="https://img.shields.io/badge/licence-AGPL%203.0-064E3B?style=for-the-badge">
 </p>
 
 ---
@@ -20,8 +20,8 @@
 
 ENUN est l'organisation qui porte l'**écosystème numérique de l'Université Abdou Moumouni**.
 
-Sa vocation est de regrouper les services numériques de l'université au sein d'une
-même identité technique et d'une même communauté de contributeurs, plutôt que de les
+Sa vocation est de regrouper les services numériques de l'université au sein d'une même
+identité technique et d'une même communauté de contributeurs, plutôt que de les
 développer comme des projets isolés.
 
 L'écosystème avance **module par module**. Chaque module vit dans son propre dépôt et
@@ -37,47 +37,20 @@ L'adhésion est **automatisée** : aucune validation manuelle n'est nécessaire.
 2. Renseignez votre identifiant GitHub et votre e-mail universitaire
 3. Vous êtes membre de l'organisation en quelques secondes
 
-### Les trois niveaux
+Le passage au niveau `moderateur` se demande dans ce même formulaire.
 
-| Niveau | Droits |
+---
+
+## Documentation
+
+| Document | Objet |
 | --- | --- |
-| `membres` | lecture des dépôts, ouverture d'issues et de pull requests |
-| `moderateurs` | écriture sur les dépôts, développement et modération |
-| **2 administrateurs** | gestion des accès, des dépôts et des réglages |
-
-Le passage au niveau `moderateur` se demande via le formulaire et est validé par un
-administrateur.
-
----
-
-## Contribuer
-
-Les contributions se font **par fork et pull request**. La branche principale de chaque
-dépôt est protégée : on ne pousse jamais directement dessus.
-
-```bash
-# 1. Forker le dépôt depuis l'interface GitHub, puis :
-git clone https://github.com/<votre-pseudo>/<depot>.git
-cd <depot>
-git checkout -b ma-contribution
-
-# 2. Développer et pousser la branche
-git add .
-git commit -m "feat: description courte de la modification"
-git push origin ma-contribution
-
-# 3. Ouvrir la Pull Request depuis GitHub vers le dépôt de l'organisation
-```
-
-Un administrateur relit et fusionne. La branche est supprimée automatiquement après fusion.
-
----
-
-## Identité visuelle
-
-L'écosystème ENUN adopte une esthétique institutionnelle sobre : angles vifs, typographie
-serrée, vert profond `#064E3B` et un accent doré `#FE932C` réservé aux éléments
-critiques.
+| [LICENSE](LICENSE) | GNU Affero General Public License v3.0 |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | workflow fork → branche → pull request, conventions de commit, règles de relecture |
+| [GOVERNANCE.md](GOVERNANCE.md) | rôles, prise de décision, accès |
+| [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) | comportement attendu dans l'organisation |
+| [SECURITY.md](SECURITY.md) | signaler une faille de sécurité |
+| [SUPPORT.md](SUPPORT.md) | où poser une question |
 
 ---
 
