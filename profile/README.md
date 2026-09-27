@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/ENUN-ORG/.github/issues/new/choose?template=rejoindre-enun.yml"><img alt="Rejoindre ENUN" src="https://img.shields.io/badge/rejoindre%20ENUN-1d76db?style=for-the-badge"></a>
+  <a href="https://github.com/ENUN-ORG/.github/issues/new/choose?template=rejoindre-enun.md"><img alt="Rejoindre ENUN" src="https://img.shields.io/badge/rejoindre%20ENUN-1d76db?style=for-the-badge"></a>
   <a href="https://github.com/ENUN-ORG/.github/issues/new/choose?template=proposition.yml"><img alt="Proposer" src="https://img.shields.io/badge/proposer%20une%20id%C3%A9e-FE932C?style=for-the-badge"></a>
   <img alt="Licence" src="https://img.shields.io/badge/licence-AGPL%203.0-064E3B?style=for-the-badge">
 </p>
@@ -35,10 +35,20 @@ gestion des dépôts.
 
 ### Rejoindre l'organisation
 
-L'adhésion est ouverte et s'effectue par
-[formulaire](https://github.com/ENUN-ORG/.github/issues/new/choose?template=rejoindre-enun.yml) : il suffit d'indiquer son
-identifiant GitHub et l'adresse e-mail associée à son compte. L'inscription est
-automatique.
+L'adhésion est ouverte à toute personne disposant d'un compte GitHub. Elle s'effectue
+en quatre étapes, sans examen préalable :
+
+1. Ouvrez l'onglet **Issues** du dépôt [.github](https://github.com/ENUN-ORG/.github/issues).
+2. Cliquez sur **New issue**.
+3. Sélectionnez le modèle **Demande d'adhésion**.
+4. Renseignez les champs demandés, puis cliquez sur **Submit new issue**.
+
+L'invitation GitHub est envoyée automatiquement. Il reste à l'accepter depuis
+[la page d'invitation](https://github.com/orgs/ENUN-ORG/invitation) : l'adhésion
+n'est définitive qu'à ce moment.
+
+L'accès de niveau `moderateur` n'est pas accordé automatiquement. Il se demande
+dans le même formulaire et se décide au regard des contributions déjà livrées.
 
 ### Proposer une idée
 

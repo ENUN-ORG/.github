@@ -7,7 +7,7 @@ Ce document décrit les modalités de contribution aux dépôts de l'organisatio
 ## Accès
 
 L'adhésion est ouverte et s'obtient par le
-[formulaire d'adhésion](https://github.com/ENUN-ORG/.github/issues/new/choose?template=rejoindre-enun.yml).
+[formulaire d'adhésion](https://github.com/ENUN-ORG/.github/issues/new/choose?template=rejoindre-enun.md).
 
 | Niveau | Équipe | Périmètre |
 | --- | --- | --- |

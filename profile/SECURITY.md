@@ -29,7 +29,7 @@ message privé adressé à l'administration, en indiquant :
 4. les vérifications déjà effectuées
 
 À défaut de contact direct, le
-[formulaire d'adhésion](https://github.com/ENUN-ORG/.github/issues/new/choose?template=rejoindre-enun.yml)
+[formulaire d'adhésion](https://github.com/ENUN-ORG/.github/issues/new/choose?template=rejoindre-enun.md)
 peut servir de point d'entrée en indiquant qu'il s'agit d'un signalement de sécurité.
 
 ---

@@ -9,7 +9,7 @@ Ce document indique où poser une question selon sa nature.
 | Sujet | Emplacement |
 | --- | --- |
 | Bug ou demande de fonctionnalité | une issue dans le dépôt concerné |
-| Accès à l'organisation, niveau d'accès | [formulaire d'adhésion](https://github.com/ENUN-ORG/.github/issues/new/choose?template=rejoindre-enun.yml) |
+| Accès à l'organisation, niveau d'accès | [formulaire d'adhésion](https://github.com/ENUN-ORG/.github/issues/new/choose?template=rejoindre-enun.md) |
 | Amélioration ou nouveau module | [formulaire de proposition](https://github.com/ENUN-ORG/.github/issues/new/choose?template=proposition.yml) |
 | Faille de sécurité | signalement privé, voir [SECURITY.md](SECURITY.md) |
 | Conduite à tenir | signalement privé, voir [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) |
