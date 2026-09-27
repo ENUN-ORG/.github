@@ -70,6 +70,7 @@ Les contributions passent par une pull request. Le détail du procédé figure d
 | Document | Objet |
 | --- | --- |
 | [LICENSE](LICENSE) | GNU Affero General Public License v3.0 |
+| [NOTICE](NOTICE) | titularité des droits et exclusions |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | cycle de contribution et conventions de commit |
 | [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) | comportement attendu au sein de l'organisation |
 | [SECURITY.md](SECURITY.md) | signalement des failles de sécurité |
