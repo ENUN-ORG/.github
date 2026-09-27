@@ -2,5 +2,5 @@
 # Les proprietaires sont definis au niveau de l'organisation (2 owners).
 # Decommente et complete avec les pseudos reels si tu veux verrouiller des chemins.
 
-*                       @akaletekoffilevis
-.github/                @akaletekoffilevis
+*      @akaletekoffilevis @AbdoulRaouf2005
+.github/      @akaletekoffilevis @AbdoulRaouf2005

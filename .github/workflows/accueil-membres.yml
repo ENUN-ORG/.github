@@ -1,0 +1,47 @@
+name: Accueil des membres
+
+# Complement de Auto-join. Une invitation n'est pas une appartenance : tant que
+# la personne ne l'a pas acceptee, elle n'existe pas dans l'organisation et ne
+# peut pas etre placee dans une equipe. Cet evenement se declenche au moment de
+# l'acceptation, ce qui est le seul instant ou l'ecriture est possible.
+
+on:
+  organization:
+    types: [member_added]
+
+permissions:
+  organizations: read
+
+jobs:
+  placer:
+    runs-on: ubuntu-latest
+    if: github.event.organization.login == 'ENUN-ORG'
+    steps:
+      - name: Placer dans l'equipe membres
+        uses: actions/github-script@v7
+        env:
+          ORG_ADMIN_TOKEN: ${{ secrets.ORG_ADMIN_TOKEN }}
+        with:
+          script: |
+            const org = context.payload.organization.login;
+            const login = context.payload.membership.user.login;
+            const authHeaders = { authorization: 'token ' + process.env.ORG_ADMIN_TOKEN };
+
+            try {
+              await github.request('PUT /orgs/{org}/teams/{team_slug}/memberships/{username}', {
+                org,
+                team_slug: 'membres',
+                username: login,
+                role: 'member',
+                headers: authHeaders,
+              });
+              core.info('@' + login + ' place dans membres');
+            } catch (error) {
+              // 404 : l'evenement organization n'est pas distribue sur ce depot.
+              // Ce n'est pas bloquant : l'adhesion reste valable, seule
+              // l'affectation d'equipe est a faire manuellement.
+              core.warning(
+                'Impossible de placer @' + login + ' dans membres (' + error.status + '). ' +
+                'Si cet evenement n\'arrive pas, verifier que le workflow est bien dans un depot de l\'organisation.'
+              );
+            }
