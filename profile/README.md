@@ -43,9 +43,14 @@ en quatre étapes, sans examen préalable :
 3. Sélectionnez le modèle **Demande d'adhésion**.
 4. Renseignez les champs demandés, puis cliquez sur **Submit new issue**.
 
-L'invitation GitHub est envoyée automatiquement. Il reste à l'accepter depuis
+L'invitation GitHub est transmise par GitHub, sous forme de notification et de
+courriel à l'adresse de votre compte. Il reste à l'accepter depuis
 [la page d'invitation](https://github.com/orgs/ENUN-ORG/invitation) : l'adhésion
 n'est définitive qu'à ce moment.
+
+Votre identité n'est pas lue dans le formulaire. L'invitation est adressée au
+compte qui a ouvert la demande, et il est impossible de s'inscrire pour quelqu'un
+d'autre. Le détail des étapes figure dans [SUPPORT.md](SUPPORT.md).
 
 L'accès de niveau `moderateur` n'est pas accordé automatiquement. Il se demande
 dans le même formulaire et se décide au regard des contributions déjà livrées.
